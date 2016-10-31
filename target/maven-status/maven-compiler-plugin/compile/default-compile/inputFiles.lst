@@ -1,2 +1,13 @@
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/config/HibernateConfig.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/util/Constants.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/service/GenericServiceImpl.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/service/GenericService.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/dao/HibernateDao.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/dao/GenericDao.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/domain/Watermark.java
 /home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/Main.java
 /home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/api/WaterMarkController.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/domain/Document.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/service/WatermarkService.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/org/hibernate/dialect/SQLiteDialect.java
+/home/dragospantiru/pers/WatermarkService/src/main/java/com/padana/dao/GenericDaoImpl.java

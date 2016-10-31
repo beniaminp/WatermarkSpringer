@@ -30,5 +30,6 @@ public class WatermarkService{
     		genericService.update(doc);
     		log.info("Updated watermark for docId: "+doc.getDocId());
     	}
+    	log.info("Wait 20 sec...");
     }
 }

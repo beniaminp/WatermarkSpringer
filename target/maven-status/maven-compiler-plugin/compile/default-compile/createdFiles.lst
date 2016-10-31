@@ -1,0 +1,13 @@
+com/padana/dao/GenericDao.class
+com/padana/Main.class
+com/padana/domain/Document.class
+com/padana/service/GenericService.class
+com/padana/domain/Watermark.class
+org/hibernate/dialect/SQLiteDialect.class
+com/padana/config/HibernateConfig.class
+com/padana/api/WaterMarkController.class
+com/padana/dao/GenericDaoImpl.class
+com/padana/service/GenericServiceImpl.class
+com/padana/service/WatermarkService.class
+com/padana/dao/HibernateDao.class
+com/padana/util/Constants.class
