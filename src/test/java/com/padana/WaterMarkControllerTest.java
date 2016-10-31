@@ -39,7 +39,7 @@ import com.padana.service.GenericService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
 @WebAppConfiguration
-public class TestApi {
+public class WaterMarkControllerTest {
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -58,6 +58,7 @@ public class TestApi {
 
 		doc.setDocAuthor("Test Author");
 		doc.setDocTitle("Test Title");
+		doc.setDocTicketId("1234567");
 	}
 
 	@Test
@@ -75,9 +76,17 @@ public class TestApi {
 
 	@Test
 	public void getDocument() throws Exception {
-		String titleEncoded = URLEncoder.encode("testTtitle", "UTF-8");
-		String authorEncoded = URLEncoder.encode("testAuthor", "UTF-8");
+		String titleEncoded = URLEncoder.encode(doc.getDocTitle(), "UTF-8");
+		String authorEncoded = URLEncoder.encode(doc.getDocAuthor(), "UTF-8");
 		String url = "/checkDocument/" + titleEncoded + "/" + authorEncoded;
+		mockMvc.perform(get(url).contentType(contentType)).andExpect(status().isOk())
+				.andExpect(content().contentType(contentType));
+	}
+	
+	@Test
+	public void getByTicket() throws Exception {
+		String ticketEncoded = URLEncoder.encode(doc.getDocTicketId(), "UTF-8");
+		String url = "/checkByTicket/" + ticketEncoded;
 		mockMvc.perform(get(url).contentType(contentType)).andExpect(status().isOk())
 				.andExpect(content().contentType(contentType));
 	}
