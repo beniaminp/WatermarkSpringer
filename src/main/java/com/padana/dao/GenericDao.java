@@ -16,7 +16,9 @@ public interface GenericDao<T> {
 	
 	void saveOrUpdate(final Class<T> clazz, T obj);
 	
-	<T> T getFiltered(final Class<T> clazz, T obj);
+	<T> T getFiltered(final Class<T> clazz, T ... obj);
 	
-	<T> List<T> getListFiltered(final Class<T> clazz, T obj);
+	<T> List<T> getListFiltered(final Class<T> clazz, T ... obj);
+	
+	<T> List<T> getNEListFiltered(Class<T> clazz, T... obj);
 }

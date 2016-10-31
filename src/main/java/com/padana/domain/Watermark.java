@@ -11,26 +11,37 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "WATERMARK")
-public class Watermark implements Serializable{
+public class Watermark implements Serializable {
 
 	private static final long serialVersionUID = -4949226775287691488L;
-	
+
 	@Id
 	@Column(name = "WATERMARK_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long watId;
-	
+
 	@Column(name = "CONTENT")
 	private String watContent;
-	
+
 	@Column(name = "TITLE")
 	private String watTitle;
-	
+
 	@Column(name = "AUTHOR")
 	private String watAuthor;
-	
+
 	@Column(name = "TOPIC")
 	private String watTopic;
+
+	public Watermark(String watContent, String watTitle, String watAuthor, String watTopic) {
+		this.watContent = watContent;
+		this.watTitle = watTitle;
+		this.watAuthor = watAuthor;
+		this.watTopic = watTopic;
+	}
+
+	public Watermark() {
+
+	}
 
 	public Long getWatId() {
 		return watId;
@@ -123,9 +134,8 @@ public class Watermark implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Watermark [watId=" + watId + ", watContent=" + watContent + ", watTitle="
-				+ watTitle + ", watAuthor=" + watAuthor + ", watTopic=" + watTopic + "]";
+		return "Watermark [watId=" + watId + ", watContent=" + watContent + ", watTitle=" + watTitle + ", watAuthor="
+				+ watAuthor + ", watTopic=" + watTopic + "]";
 	}
-	
-	
+
 }

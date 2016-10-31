@@ -27,10 +27,12 @@ public class GenericDaoImpl<T> extends HibernateDao implements GenericDao<T> {
 		this.type = type;
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> T get(final Class<T> clazz, Long obj) {
 		return (T) getSession().get(clazz, (Serializable) obj);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> getAll(final Class<T> clazz) {
 		Criteria criteria = getSession().createCriteria(clazz);
 		return (List<T>) criteria.list();
@@ -51,19 +53,35 @@ public class GenericDaoImpl<T> extends HibernateDao implements GenericDao<T> {
 
 	public void saveOrUpdate(Class<T> clazz, T obj) {
 		getSession().saveOrUpdate(obj);
-		
+
 	}
 
-	public <T> List<T> getListFiltered(Class<T> clazz, T obj) {
+	@SuppressWarnings("unchecked")
+	public <T> T getFiltered(Class<T> clazz, T... obj) {
 		Criteria criteria = getSession().createCriteria(clazz);
-		criteria.equals(obj);
+		for (int i = 0; i < obj.length; i += 2) {
+			criteria.add(Restrictions.eqOrIsNull((String) obj[i], obj[i + 1]));
+		}
+		;
+		return (T) criteria.uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getListFiltered(Class<T> clazz, T... obj) {
+		Criteria criteria = getSession().createCriteria(clazz);
+		for (int i = 0; i < obj.length; i += 2) {
+			criteria.add(Restrictions.eqOrIsNull((String) obj[i], obj[i + 1]));
+		}
 		return (List<T>) criteria.list();
 	}
-
-	public <T> T getFiltered(Class<T> clazz, T obj) {
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getNEListFiltered(Class<T> clazz, T... obj) {
 		Criteria criteria = getSession().createCriteria(clazz);
-		criteria.equals(obj);
-		return (T) criteria.uniqueResult();
+		for (int i = 0; i < obj.length; i += 2) {
+			criteria.add(Restrictions.neOrIsNotNull((String) obj[i], obj[i + 1]));
+		}
+		return (List<T>) criteria.list();
 	}
 
 }

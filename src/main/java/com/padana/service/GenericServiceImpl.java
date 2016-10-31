@@ -41,11 +41,15 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 		genericDao.saveOrUpdate(clazz, obj);
 	}
 	
-	public <T> T getFiltered(Class<T> clazz, T obj) {
+	public <T> T getFiltered(Class<T> clazz, T ...obj ) {
 		return (T) genericDao.getFiltered(clazz, obj);
 	}
 	
-	public <T> List<T> getListFiltered(Class<T> clazz, T obj) {
+	public <T> List<T> getListFiltered(Class<T> clazz, T ... obj) {
 		return (List<T>) genericDao.getListFiltered(clazz, obj);
+	}
+	
+	public <T> List<T> getNEListFiltered(Class<T> clazz, T... obj){
+		return (List<T>) genericDao.getNEListFiltered(clazz, obj);
 	}
 }
